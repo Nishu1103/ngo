@@ -45,7 +45,7 @@ const userSchema = new Mongoose.Schema({
         type: String,
         default: "user",
         required: [true, "Please enter your role"],
-        enum:["NGO", "HOTEL/RESTARUENT","SELF DONATE"],
+        enum:["doner", "agent","admin"],
 
     },
     createdAt: {
