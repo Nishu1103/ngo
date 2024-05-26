@@ -36,8 +36,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(
   cors({
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
+     
   })
 );
 
