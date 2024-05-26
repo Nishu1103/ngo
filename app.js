@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 //     credentials: true,
 //   })
 // );
-app.use(cors());
+// app.use(cors());
 
 app.options("*", cors());
 
