@@ -3,12 +3,19 @@ import Mongoose  from "mongoose";
 const foodSchema = new Mongoose.Schema({
 	donor: {
 		type: Mongoose.Schema.Types.ObjectId,
-		ref: "users",
+		ref: "User",
 		required: true
 	},
+	name:{
+		type: String,
+		required: true
+	},	
 	agent: {
 		type: Mongoose.Schema.Types.ObjectId,
-		ref: "users",
+		ref: "User",
+	},
+	agentName:{
+		type: String,
 	},
 	foodType: {
 		type: String,

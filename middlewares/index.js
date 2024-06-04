@@ -7,6 +7,7 @@ const middleware = {
 		res.redirect("/auth/login");
 	},
 	
+	
 	ensureAdminLoggedIn: (req, res, next) => {
 		if(req.isUnauthenticated()) {
 			req.session.returnTo = req.originalUrl;

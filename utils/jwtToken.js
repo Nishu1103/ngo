@@ -6,7 +6,6 @@ export const sendToken = (user, statusCode, res) => {
                 +
               process.env.COOKIE_EXPIRY * 24 * 60 * 60 * 1000),
         httpOnly: true,
-
     };
     res.status(statusCode).cookie("token", token, options).json({
         success: true,
@@ -14,3 +13,4 @@ export const sendToken = (user, statusCode, res) => {
         user,
     });
 };
+ 

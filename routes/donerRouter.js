@@ -14,13 +14,13 @@ import {
 import { isAuthorized } from "../middlewares/auth.js";
 const router = express.Router();
 
-router.get("/doner/dashboard",isAuthorized, donor_dashboard);
-router.post("/doner/donate",isAuthorized, donor_donate);
-router.get("/doner/donations/pending", donor_donation_pend);
-router.get("/doner/donations/previous", donor_donation_prev);
+router.get("/doner/dashboard",isAuthorized,  donor_dashboard);
+router.post("/doner/donate",isAuthorized,  donor_donate);
+router.get("/doner/donations/pending",isAuthorized, donor_donation_pend);
+router.get("/doner/donations/previous",isAuthorized,donor_donation_prev);
 router.get("/doner/donation/deleteRejected/:donationId",isAuthorized, donor_donation_deleterejected);
-router.get("/doner/profile",isAuthorized, donor_profile);
-router.post("/doner/profile", isAuthorized,donor_profile_update);
+router.get("/doner/profile",  donor_profile);
+router.post("/doner/profile",  donor_profile_update);
 
 
 
