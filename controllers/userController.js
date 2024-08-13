@@ -89,6 +89,7 @@ export const logout = catchASyncError(async (req, res, next) => {
 
 export const getUser = catchASyncError(async (req, res, next) => {
   const user = req.user;
+  console.log(user,"nnorncnoncncnfnio daa user ")
   res.status(200).json({
     success: true,
     user,

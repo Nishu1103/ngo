@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
-// import pagesPath from "./utils/path.js";
 import useRouter from "./routes/userRouter.js";
 import adminRouter from "./routes/adminRouter.js";
 import agentRouter from "./routes/agentRouter.js";
@@ -24,10 +23,11 @@ app.get("/", (req, res) => {
   // res.send("Hello World");
   res.sendFile(path.join(pagesPath, 'WelcomePage.html'));
 });
+
  
 app.use(
   cors({
-    origin: 'https://frontend-food-ivory.vercel.app', // Your frontend URL
+    origin: 'http://localhost:5173',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow credentials
   })
@@ -36,7 +36,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/v1/user", useRouter);
+app.use("/api/v1/user", useRouter); 
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/agent", agentRouter);
 app.use("/api/v1/doner", donerRouter);
@@ -46,3 +46,4 @@ app.use(ErrorHandler);
 app.use(errorMiddleware);
 
 export default app;
+
