@@ -10,7 +10,7 @@ const router = express.Router();
 
 export const agent_dashboard = catchASyncError(async (req, res, next) => {
    
-    console.log("user ",req.user)
+    // console.log("user ",req.user)
     const agentId = req.user._id;
     const numAssignedDonations = await Donation.countDocuments({
         agent: agentId,
@@ -105,7 +105,7 @@ export const agent_collection_collect = catchASyncError(async (req, res, next) =
     const collectionId = req.params.collectionId;
    
  
-console.log("collection id ", collectionId)
+// console.log("collection id ", collectionId)
     await Donation.findByIdAndUpdate(collectionId, {
         status: "collected",
         collectionTime: Date.now(),

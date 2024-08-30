@@ -23,11 +23,12 @@ app.get("/", (req, res) => {
   // res.send("Hello World");
   res.sendFile(path.join(pagesPath, 'WelcomePage.html'));
 });
-
  
+
+
 app.use(
   cors({
-    origin: 'https://food-ngo.vercel.app/',  
+    origin: 'http://localhost:5173',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow credentials
   })
@@ -46,4 +47,5 @@ app.use(ErrorHandler);
 app.use(errorMiddleware);
 
 export default app;
+
 

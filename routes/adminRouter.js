@@ -15,8 +15,6 @@ import {
   all_agent,
 } from "../controllers/admin.js";
 
-
-
 import { isAuthorized } from "../middlewares/auth.js";
 const router = express.Router();
 
@@ -32,8 +30,6 @@ router.get("/admin/agents",  admin_dashboard_agents);
 router.get("/admin/profile",  admin_profile);
 router.post("/admin/profile",  admin_profile_update);
 router.get("/admin/allagents", all_agent);
-
-
 
 
 export default router;

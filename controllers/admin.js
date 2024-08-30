@@ -40,7 +40,7 @@ export const admin_donation_pending = catchASyncError(async (req, res, next) => 
             pendingDonations
         });
     } catch (err) {
-        console.error('Error fetching pending donations:', err);
+        // console.error('Error fetching pending donations:', err);
         res.status(500).json({
             success: false,
             message: "Some error occurred on the server."
@@ -58,9 +58,9 @@ export const admin_donation_previous = catchASyncError(async (req, res, next) =>
 
 export const admin_donation_view = catchASyncError(async (req, res, next) => {
     const donationId = req.params._Id;
-    console.log("donation id",donationId)
+    // console.log("donation id",donationId)
     const donation = await Donation.findById(donationId).populate("donor").populate("agent");
-    console.log("donation",donation)
+    // console.log("donation",donation)
 
     try {
         const donationId = req.params.donationId;
@@ -78,7 +78,7 @@ export const admin_donation_view = catchASyncError(async (req, res, next) => {
           donation,
         });
       } catch (error) {
-        console.error('Error fetching donation:', error);
+        // console.error('Error fetching donation:', error);
         res.status(500).json({
           success: false,
           message: 'Some error occurred on the server.',
@@ -163,13 +163,13 @@ export const admin_donation_reject = catchASyncError(async (req, res, next) => {
 export const admin_donation_assign = catchASyncError(async (req, res, next) => {
     try {
       const { donationId } = req.params;
-      console.log(`Fetching donation with ID: ${donationId}`);
+      // console.log(`Fetching donation with ID: ${donationId}`);
   
       const donation = await Donation.findById(donationId).populate('donor');
       const agents = await User.find({ role: 'agent' });
   
       if (!donation) {
-        console.log(`Donation with ID: ${donationId} not found`);
+        // console.log(`Donation with ID: ${donationId} not found`);
         return res.status(404).json({ success: false, message: 'Donation not found' });
       }
   
@@ -181,7 +181,7 @@ export const admin_donation_assign = catchASyncError(async (req, res, next) => {
         },
       });
     } catch (err) {
-      console.log(`Error fetching donation or agents: ${err.message}`);
+      // console.log(`Error fetching donation or agents: ${err.message}`);
       res.status(500).json({
         success: false,
         message: 'Some error occurred on the server.',
@@ -195,7 +195,7 @@ export const admin_donation_assign = catchASyncError(async (req, res, next) => {
       const { donationId } = req.params;
       const { agentId, adminToAgentMsg } = req.body;
   
-      console.log(`Assigning agent with ID: ${agentId} to donation with ID: ${donationId}`);
+      // console.log(`Assigning agent with ID: ${agentId} to donation with ID: ${donationId}`);
   
       const updatedDonation = await Donation.findByIdAndUpdate(
         donationId,
@@ -204,7 +204,7 @@ export const admin_donation_assign = catchASyncError(async (req, res, next) => {
       );
   
       if (!updatedDonation) {
-        console.log(`Donation with ID: ${donationId} not found for assignment`);
+        // console.log(`Donation with ID: ${donationId} not found for assignment`);
         return res.status(404).json({ success: false, message: 'Donation not found for assignment' });
       }
   
@@ -213,7 +213,7 @@ export const admin_donation_assign = catchASyncError(async (req, res, next) => {
         message: "Agent assigned successfully",
       });
     } catch (err) {
-      console.log(`Error assigning agent: ${err.message}`);
+      // console.log(`Error assigning agent: ${err.message}`);
       res.status(500).json({
         success: false,
         message: 'Some error occurred on the server or select the agent',

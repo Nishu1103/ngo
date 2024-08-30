@@ -8,10 +8,10 @@ const router = express.Router();
 
 export const donor_dashboard = catchASyncError(async (req, res, next) => {
   try {
-    console.log("req.user donate", req.user);
+    // console.log("req.user donate", req.user);
 
     const donorId = req.user._id;
-    console.log("id", donorId);
+    // console.log("id", donorId);
 
     const numCollectedDonations = await Donation.countDocuments({
       donor: donorId,
@@ -38,7 +38,7 @@ export const donor_dashboard = catchASyncError(async (req, res, next) => {
       numAssignedDonations,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
       success: false,
       message: "Some error occurred on the server.",
@@ -57,13 +57,13 @@ export const donor_donate = catchASyncError(async (req, res, next) => {
       });
     }
 
-    console.log("Received donation data:", donation);
+    // console.log("Received donation data:", donation);
 
     // Ensure that the donor ID is properly assigned
     donation.status = "pending";
     donation.donor = req.user._id; // Assuming the donor ID is stored in req.user._id
 
-    console.log("Modified donation data:", donation);
+    // console.log("Modified donation data:", donation);
 
     const newDonation = new Donation(donation);
 
@@ -74,7 +74,7 @@ export const donor_donate = catchASyncError(async (req, res, next) => {
       message: "Donation request sent successfully",
     });
   } catch (err) {
-    console.error("Error in donor_donate:", err);
+    // console.error("Error in donor_donate:", err);
 
     // Send an error response with specific error message
     res.status(500).json({
@@ -96,7 +96,7 @@ export const donor_donation_pend = catchASyncError(async (req, res, next) => {
       pendingDonations,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
       success: false,
       message: "Some error occurred on the server.",
@@ -115,7 +115,7 @@ export const donor_donation_prev = catchASyncError(async (req, res, next) => {
       previousDonations,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
       success: false,
       message: "Some error occurred on the server.",
@@ -133,7 +133,7 @@ export const donor_donation_deleterejected = catchASyncError(
         message: "Donation deleted successfully",
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({
         success: false,
         message: "Some error occurred on the server.",
@@ -159,7 +159,7 @@ export const donor_profile_update = catchASyncError(async (req, res, next) => {
       message: "Profile updated successfully",
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
       success: false,
       message: "Some error occurred on the server.",

@@ -5,7 +5,7 @@ class ErrorHandler extends Error {
   }
 }
 export const errorMiddleware = (err, req, res, next) => {
-  console.error("Error Middleware:", err);
+  // console.error("Error Middleware:", err);
 
   if (err.message.includes("Resource not found")) {
     return res.status(400).json({

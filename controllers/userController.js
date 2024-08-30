@@ -74,6 +74,14 @@ export const login = catchASyncError(async (req, res, next) => {
   sendToken(user, 200, res, "Login successfully");
 });
 
+// export const logout = catchASyncError(async (req, res, next) => {
+//   res
+//     .status(201)
+//     .json({
+//       success: true,
+//       message: "Logged out successfully",
+//     });
+// });
 export const logout = catchASyncError(async (req, res, next) => {
   res
     .status(201)
@@ -89,7 +97,7 @@ export const logout = catchASyncError(async (req, res, next) => {
 
 export const getUser = catchASyncError(async (req, res, next) => {
   const user = req.user;
-  console.log(user,"nnorncnoncncnfnio daa user ")
+  // console.log(user,"nnorncnoncncnfnio daa user ")
   res.status(200).json({
     success: true,
     user,
