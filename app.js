@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: 'https://food-ngo.vercel.app',  
+    origin: 'https://food-frontend-iota.vercel.app',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow credentials
   })
